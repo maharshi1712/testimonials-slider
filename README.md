@@ -1,4 +1,4 @@
-Preview : testnomial-slider.netlify.app
+Preview : https://testnomial-slider.netlify.app
 
 # Frontend Mentor - Coding bootcamp testimonials slider
 
