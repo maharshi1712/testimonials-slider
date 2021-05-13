@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 100%;
+        }
+        
+         :root {
+            --drkblue: hsl(240, 38%, 20%);
+            --grayblue: hsl(240, 18%, 77%);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .wrapper {
+            position: relative;
+            min-height: 100vh;
+            color: var(--drkblue);
+            background-image: url('./images/pattern-curve.svg');
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: 70vw 10vh;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .testimonial {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .image__container {
+            background-image: url('./images/pattern-bg.svg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center;
+            height: 100%;
+            padding: 2rem;
+            width: 100%;
+            position: relative;
+        }
+        
+        .image__div {
+            width: 100%;
+            position: relative;
+        }
+        
+        .user__image {
+            width: 100%;
+            border-radius: 0.3em;
+            box-shadow: 0px 30px 30px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navigation {
+            position: absolute;
+            display: flex;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: calc(-2.5rem / 2);
+        }
+        
+        .navigation .btn {
+            background-color: white;
+            border: none;
+            outline: none;
+            padding: 0.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        #prev {
+            border-radius: 50% 0 0 50%;
+        }
+        
+        #next {
+            border-radius: 0 50% 50% 0;
+        }
+        
+        .testimonial__container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .testimonial__text {
+            font-size: 0.9rem;
+            background-image: url('./images/pattern-quotes.svg');
+            background-repeat: no-repeat;
+            background-size: 14vw 6vh;
+            background-position: 50% 0;
+            font-weight: 300;
+            line-height: 1.4;
+            padding: 7% 8vw 5%;
+        }
+        
+        .user__info {
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+        
+        .user__role {
+            color: var(--grayblue);
+        }
+        
+        .active {
+            opacity: 1;
+        }
+        
+        .attribution {
+            position: absolute;
+            bottom: 0%;
+            left: 45%;
+            transform: translateX(-45%);
+            font-size: 0.5rem;
+            color: var(--grayblue);
+        }
+        
+        @media (min-width: 700px) {
+            .wrapper {
+                background-size: 35vw 15vh;
+            }
+            .testimonial {
+                flex-direction: row-reverse;
+                justify-content: center;
+                align-items: center;
+                margin: 0 2vw;
+                max-width: 1320px;
+            }
+            .image__container {
+                display: flex;
+                background-size: 100% 100%;
+                width: 135%;
+                align-items: center;
+                padding: 4rem;
+                height: auto;
+            }
+            .image__div {
+                height: auto;
+            }
+            .navigation {
+                left: 10%;
+                transform: none;
+            }
+            .navigation .btn {
+                width: 4rem;
+                height: 4rem;
+            }
+            .testimonial__container {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: left;
+                margin: 0 0 0 6vw;
+            }
+            .testimonial__text {
+                background-size: 8vw 10vh;
+                background-position: 20% 0;
+                z-index: 999;
+                font-size: 1.9rem;
+                padding: 5vh 0 3vh;
+                width: 125%;
+            }
+            .user__info {
+                display: flex;
+                justify-self: start;
+                font-size: 1rem;
+            }
+            .user__role {
+                margin-left: 0.5rem;
+            }
+            .attribution {
+                position: absolute;
+                bottom: 0%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (min-width: 900px) and (max-width: 1100px) {
+            .testimonial__text {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (min-width: 700px) and (max-width: 899px) {
+            .testimonial__text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <article class="testimonial">
+            <div class="image__container">
+                <div class="image__div">
+                    <img alt="" class="user__image" />
+                    <div class="navigation">
+                        <button class="btn" id="prev">
+                          <img src="./images/icon-prev.svg" alt="previous" />
+                        </button>
+
+                        <button class="btn" id="next">
+                          <img src="./images/icon-next.svg" alt="next" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial__container">
+                <blockquote class="testimonial__text"></blockquote>
+                <div class="user__info">
+                    <h4 class="user__name"></h4>
+                    <p class="user__role"></p>
+                </div>
+            </div>
+        </article>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        let counter = 0;
+
+        // Selectors
+        const userImage = document.querySelector('.user__image');
+        const userName = document.querySelector('.user__name');
+        const userRole = document.querySelector('.user__role');
+        const testimonialContainer = document.querySelector('.testimonial__container');
+        const testimonialText = document.querySelector('.testimonial__text');
+        const prevBtn = document.querySelector('#prev');
+        const nextBtn = document.querySelector('#next');
+
+        const users = [{
+            username: 'Tanya Sinclair',
+            userrole: 'UX Engineer',
+            testimony: ` " I've been interested in coding for a while but never taken the jump, until now. I couldn't recommned this course enough. I'm now in the job of my dreams and so excited about the future. " `,
+            imgSrc: './images/image-tanya.jpg',
+        }, {
+            username: 'John Tarkpor',
+            userrole: 'Junior Front-end Developer',
+            testimony: ` "If you want to lay the best foundation possible I'd recommend taking this course. The depth the instructors go into is incredible. I now feel so confident about starting as a professional developer. " `,
+            imgSrc: './images/image-john.jpg',
+        }, ];
+
+        // Functions
+        const toggleActive = type => {
+            if (type === 'add') {
+                userImage.classList.add('active');
+                testimonialContainer.classList.add('active');
+            }
+            if (type === 'remove') {
+                userImage.classList.remove('active');
+                testimonialContainer.classList.remove('active');
+            }
+        };
+
+        const displayUser = userdata => {
+            const {
+                username,
+                userrole,
+                testimony,
+                imgSrc
+            } = userdata;
+
+            userImage.alt = username;
+            userImage.src = imgSrc;
+            userName.textContent = username;
+            userRole.textContent = userrole;
+            testimonialText.textContent = testimony;
+        };
+
+        const slideOut = count => {
+            toggleActive('remove');
+            setTimeout(() => {
+                displayUser(users[count]);
+                setTimeout(() => toggleActive('add'));
+            });
+        };
+
+        const prevSlide = () => {
+            counter <= 0 ? (counter = users.length - 1) : counter--;
+
+            slideOut(counter);
+        };
+
+        const nextSlide = () => {
+            counter >= users.length - 1 ? (counter = 0) : counter++;
+
+            slideOut(counter);
+        };
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            displayUser(users[counter]);
+            toggleActive('add');
+        });
+
+        prevBtn.addEventListener('click', prevSlide);
+
+        nextBtn.addEventListener('click', nextSlide);
+    </script>
+</body>
+
+</html>
